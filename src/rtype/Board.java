@@ -52,6 +52,7 @@ public class Board extends JPanel implements ActionListener {
 	private String level3 = "Level 3";
 	private String level4 = "Level 4";
 	private String level5 = "Level 5";
+	private String level6 = "Level 6";
 	
 	private int[][] pos = { 
 	        {2380, 29}, {2500, 59}, {1380, 89},
@@ -141,7 +142,8 @@ public class Board extends JPanel implements ActionListener {
 			else if (numAlien == 10) g2d.drawString(level2, 270, 370);
 			else if (numAlien == 15) g2d.drawString(level3, 270, 370);
 			else if (numAlien == 20) g2d.drawString(level4, 270, 370);
-			else g2d.drawString(level5, 270, 370);
+			else if (numAlien == 25) g2d.drawString(level5, 270, 370);
+			else if (numAlien == pos.length) g2d.drawString(level6, 270, 370);
 		}
 		else {
 			String msg = "Game Over";
