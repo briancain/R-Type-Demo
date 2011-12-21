@@ -1,0 +1,18 @@
+Custom R-Type
+==================
+
+Here is a custom R-Type game programmed in Java. It was coded and compiled using Eclipse.
+
+Background Music
+------------------
+
+If you like the background music, it can be downloaded for free here:
+
+* https://8bc.org/music/Anamanaguchi/Upgrade/
+
+Todo
+--------
+
+* Add a main menu
+* Randomize enemy movement
+* Powerups
