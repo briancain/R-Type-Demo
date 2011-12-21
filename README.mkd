@@ -3,6 +3,13 @@ Custom R-Type
 
 Here is a custom R-Type game programmed in Java. It was coded and compiled using Eclipse.
 
+Demo
+------
+
+If you are interested in seeing what this demo looks like, follow this youtube link:
+
+* http://www.youtube.com/watch?v=iclKd2tS53I
+
 Background Music
 ------------------
 
