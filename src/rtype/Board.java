@@ -258,10 +258,10 @@ public class Board extends JPanel implements ActionListener {
 		int key = e.getKeyCode();
 		
 		if (key == KeyEvent.VK_ENTER && !ingame){
+			numAlien = 5;
 			initAliens();
 			craft.reset();
 			score = 0;
-			numAlien = 5;
 			ingame = true;
 		}
 	}
