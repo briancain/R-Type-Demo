@@ -172,7 +172,9 @@ public class Board extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent e){
 		if (aliens.size() == 0){
 			if (craft.getLives() >= 1 && numAlien < pos.length) {
-				Sound.levelUp.play();
+				if (ingame){
+					Sound.levelUp.play();
+				}
 				numAlien += 5;
 				initAliens();
 			}
