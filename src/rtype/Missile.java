@@ -9,13 +9,10 @@ import java.awt.Rectangle;
 import javax.swing.ImageIcon;
 
 public class Missile {
-	
 	private int x, y, width, height;
 	private Image image;
 	boolean visible;
-	
 	private String msstr = "media/missile.png";
-	
 	private final int BOARD_WIDTH = 590;
 	private final int MISSILE_SPEED = 2;
 	

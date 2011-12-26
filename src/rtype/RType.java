@@ -7,7 +7,6 @@ package rtype;
 import javax.swing.JFrame;
 
 public class RType extends JFrame {
-
 	/**
 	 * 
 	 */

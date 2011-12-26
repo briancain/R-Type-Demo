@@ -3,6 +3,18 @@ Custom R-Type
 
 Here is a custom R-Type game programmed in Java. It was coded and compiled using Eclipse.
 
+Release Notes v 1.1
+-------------------------
+
+* Added pause
+
+Controls
+---------------
+
+* Arrow Keys: Move Ship Around
+* Space Bar: Fire ship weapons
+* P: Pause game
+
 Demo
 ------
 

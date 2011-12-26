@@ -6,7 +6,7 @@ package rtype;
 
 import java.awt.Image;
 import java.awt.Rectangle;
-
+import java.util.Random;
 import javax.swing.ImageIcon;
 
 public class Alien {
@@ -27,9 +27,28 @@ public class Alien {
 	}
 	
 	public void move() {
+		Random r = new Random();
 		if (x < 0) {
 			x = 600;
 		}
+		int dy;
+		
+		dy = r.nextInt(10);
+		if (dy == 7 || dy == 4) {
+			y++;
+		}
+		else if  (dy == 2 || dy == 5) {
+			y--;
+		}
+		
+		if (y < 1) {
+        	y = 379;
+        }
+		//
+        if(y > 380) {
+        	y = 1;
+        }
+        
 		x--;
 	}
 	

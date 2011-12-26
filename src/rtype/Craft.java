@@ -7,26 +7,18 @@ package rtype;
 import java.awt.Image;
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
-
 import java.util.ArrayList;
-
 import javax.swing.ImageIcon;
 
 public class Craft {
-
     private String craft = "media/craft23.png";
-
-    private int dx;
-    private int dy;
-    private int x;
-    private int y;
+    private int dx, dy, x, y;
     private int width;
     private int height;
     private Image image;
-    private ArrayList missiles;
+    private ArrayList<Missile> missiles;
     private final int CRAFT_SIZE = 20;
     private boolean visible;
-    
     private int lives = 3;
     
     public Craft() {
@@ -34,12 +26,11 @@ public class Craft {
         image = ii.getImage();
         width = image.getWidth(null);
         height = image.getHeight(null);
-        missiles = new ArrayList();
+        missiles = new ArrayList<Missile>();
         visible = true;
         x = 40;
         y = 182;
     }
-
 
     public void move() {
         x += dx;
@@ -75,7 +66,7 @@ public class Craft {
         return image;
     }
 
-    public ArrayList getMissiles() {
+    public ArrayList<Missile> getMissiles() {
         return missiles;
     }
 
@@ -96,10 +87,9 @@ public class Craft {
     }
     
     public void keyPressed(KeyEvent e) {
-
         int key = e.getKeyCode();
 
-        if (key == KeyEvent.VK_SPACE && Board.isGame()) {
+        if (key == KeyEvent.VK_SPACE && Board.isGame() && !Board.paused) {
             fire();
         }
 
@@ -142,6 +132,7 @@ public class Craft {
     	x = 40;
     	y = 182;
     }
+    
     public void keyReleased(KeyEvent e) {
         int key = e.getKeyCode();
 
