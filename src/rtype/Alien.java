@@ -1,7 +1,3 @@
-/*
- * Programmed by: Brian Cain
- */
-
 package rtype;
 
 import java.awt.Image;
@@ -9,7 +5,12 @@ import java.awt.Rectangle;
 import java.util.Random;
 import javax.swing.ImageIcon;
 
-public class Alien {
+/**
+ * 
+ * @author brian
+ *
+ */
+public class Alien implements Being {
 	private String alien = "media/enemy11.png";
 	
 	private int x, y, width, height;
@@ -64,7 +65,7 @@ public class Alien {
 		return visible;
 	}
 	
-	public void setVisible(Boolean visible) {
+	public void setVisible(boolean visible) {
 		this.visible = visible;
 	}
 	

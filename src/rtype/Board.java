@@ -1,7 +1,3 @@
-/*
- * Programmed by: Brian Cain
- */
-
 package rtype;
 
 import java.awt.Color;
@@ -21,10 +17,12 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
+/**
+ * 
+ * @author brian
+ *
+ */
 public class Board extends JPanel implements ActionListener {
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private String bg = "media/bg.png";
 	private Timer timer;

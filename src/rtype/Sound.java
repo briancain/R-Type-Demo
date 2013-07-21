@@ -1,12 +1,13 @@
-/*
- * Programmed by: Brian Cain
- */
-
 package rtype;
 
 import java.applet.Applet;
 import java.applet.AudioClip;
 
+/**
+ * 
+ * @author brian
+ *
+ */
 public class Sound {
 	public static final Sound playerShoot = new Sound("media/shoot.wav");
 	public static final Sound playerDeath = new Sound("media/bossdeath.wav");

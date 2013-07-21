@@ -1,13 +1,14 @@
-/*
- * Programmed by: Brian Cain
- */
-
 package rtype;
 
 import java.awt.Image;
 import java.awt.Rectangle;
 import javax.swing.ImageIcon;
 
+/**
+ * 
+ * @author brian
+ *
+ */
 public class Missile {
 	private int x, y, width, height;
 	private Image image;

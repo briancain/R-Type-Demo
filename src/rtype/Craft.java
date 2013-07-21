@@ -1,7 +1,3 @@
-/*
- * Programmed by: Brian Cain
- */
-
 package rtype;
 
 import java.awt.Image;
@@ -10,7 +6,12 @@ import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 
-public class Craft {
+/**
+ * 
+ * @author briancain
+ *
+ */
+public class Craft implements Being {
     private String craft = "media/craft23.png";
     private int dx, dy, x, y;
     private int width;

@@ -1,11 +1,12 @@
-/*
- * Programmed by: Brian Cain
- */
-
 package rtype;
 
 import javax.swing.JFrame;
 
+/**
+ * 
+ * @author brian
+ *
+ */
 public class RType extends JFrame {
 	/**
 	 * 
