@@ -3,8 +3,14 @@ Custom R-Type
 
 Here is a custom R-Type game programmed in Java. It was coded and compiled using Eclipse.
 
-Release Notes v 1.1
+Release Notes
 -------------------------
+
+### v1.2
+
+* Added Powerups
+
+### v1.1
 
 * Added pause
 
@@ -29,9 +35,14 @@ If you like the background music, it can be downloaded for free here:
 
 * https://8bc.org/music/Anamanaguchi/Upgrade/
 
+Completed tasks
+-----------------
+
+Powerups
+  - After a certain score is achieved, a powerup will show up to aid the player.
+
 Todo
 --------
 
 * Add a main menu
 * Randomize enemy movement
-* Powerups

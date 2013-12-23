@@ -21,6 +21,7 @@ public class Craft implements Being {
     private final int CRAFT_SIZE = 20;
     private boolean visible;
     private int lives = 3;
+    private boolean poweredUp;
     
     public Craft() {
         ImageIcon ii = new ImageIcon(this.getClass().getResource(craft));
@@ -31,6 +32,7 @@ public class Craft implements Being {
         visible = true;
         x = 40;
         y = 182;
+        poweredUp = false;
     }
 
     public void move() {
@@ -79,6 +81,14 @@ public class Craft implements Being {
     	return visible;
     }
     
+    public void setPoweredUp(boolean power) {
+    	this.poweredUp = power;
+    }
+    
+    public boolean isPoweredUp() {
+    	return poweredUp;
+    }
+    
     public int getLives() {
     	return lives;
     }
@@ -95,25 +105,46 @@ public class Craft implements Being {
         }
 
         if (key == KeyEvent.VK_LEFT) {
-            dx = -1;
+        	if (poweredUp) {
+        		dx = -3;
+        	} else {
+        		dx = -1;
+        	}
         }
 
         if (key == KeyEvent.VK_RIGHT) {
-            dx = 1;
+        	if (poweredUp) {
+        		dx = 3;
+        	} else {
+        		dx = 1;
+        	}
         }
 
         if (key == KeyEvent.VK_UP) {
-            dy = -1;
+        	if (poweredUp) {
+        		dy = -3;
+        	} else {
+        		dy = -1;
+        	}
         }
 
         if (key == KeyEvent.VK_DOWN) {
-            dy = 1;
+        	if (poweredUp) {
+        		dy = 3;
+        	} else {
+        		dy = 1;
+        	}
         }
     }
 
     public void fire() {
     	Sound.playerShoot.play();
-        missiles.add(new Missile(x + CRAFT_SIZE, y + CRAFT_SIZE/2));
+    	if (poweredUp) {
+    		missiles.add(new Missile(x + CRAFT_SIZE - 6, y + CRAFT_SIZE/2 - 6));
+    		missiles.add(new Missile(x + CRAFT_SIZE + 3, y + CRAFT_SIZE/2 + 3));
+    	} else {
+    		missiles.add(new Missile(x + CRAFT_SIZE, y + CRAFT_SIZE/2));
+    	}
     }
     
     public void hit() {

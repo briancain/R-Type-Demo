@@ -28,6 +28,7 @@ public class Board extends JPanel implements ActionListener {
 	private Timer timer;
 	private Craft craft;
 	private ArrayList<Alien> aliens;
+	private PowerUp powerUp;
 	private static boolean ingame;
 	static boolean paused;
 	private int B_WIDTH;
@@ -35,6 +36,7 @@ public class Board extends JPanel implements ActionListener {
 	private int numAlien = 5;
 	private Image image;
 	private int score;
+	private String level;
 	private String level1 = "Level 1";
 	private String level2 = "Level 2";
 	private String level3 = "Level 3";
@@ -64,12 +66,16 @@ public class Board extends JPanel implements ActionListener {
 		paused = true;
 		score = 0;
 		
+		level = level1;
+		
 		ImageIcon ii = new ImageIcon(this.getClass().getResource(bg));
 		image = ii.getImage();
 		
 		setSize(600, 400);
 		
 		craft = new Craft();
+		
+		powerUp = new PowerUp(590, 80);
 		
 		initAliens();
 		
@@ -123,6 +129,10 @@ public class Board extends JPanel implements ActionListener {
 						g2d.drawImage(a.getImage(), a.getX(), a.getY(), this);
 					}
 				}
+				
+				if (powerUp.isVisible()) {
+					g2d.drawImage(powerUp.getImage(), powerUp.getX(), powerUp.getY(), this);
+				}
 			}
 			
 			g2d.setColor(Color.WHITE);
@@ -135,12 +145,25 @@ public class Board extends JPanel implements ActionListener {
 				g.drawString("Press 'P' to un-pause", 235, 200);
 			}
 			
-			if (numAlien == 5) g2d.drawString(level1, 270, 370);
-			else if (numAlien == 10) g2d.drawString(level2, 270, 370);
-			else if (numAlien == 15) g2d.drawString(level3, 270, 370);
-			else if (numAlien == 20) g2d.drawString(level4, 270, 370);
-			else if (numAlien == 25) g2d.drawString(level5, 270, 370);
-			else if (numAlien == pos.length) g2d.drawString(level6, 270, 370);
+			if (numAlien == 5){
+				level = level1;
+			} else if (numAlien == 10){
+				level = level2;
+			} else if (numAlien == 15){
+				level = level3;
+			} else if (numAlien == 20){
+				level = level4;
+			} else if (numAlien == 25){
+				level = level5;
+			} else if (numAlien == pos.length){
+				level = level6;
+			}
+			
+			if ((score == 1000 || score == 5550) && (!craft.isPoweredUp() && !powerUp.isVisible())) {
+				powerUp.setVisible(true);
+			}
+
+			g2d.drawString(level, 270, 370);
 		}
 		else {
 			String msg = "Game Over";
@@ -202,6 +225,10 @@ public class Board extends JPanel implements ActionListener {
 	            	aliens.remove(i);
 	            }
 	        }
+	        
+	        if (powerUp.isVisible()) {
+	        	powerUp.move();
+	        }
 			
 			craft.move();
 			checkCollisions();
@@ -223,6 +250,8 @@ public class Board extends JPanel implements ActionListener {
 					a.setVisible(false);
 					craft.hit();
 					score += 50;
+					craft.setPoweredUp(false);
+					powerUp = new PowerUp(590, 80);
 				}
 				else {
 					Sound.playerDeath.play();
@@ -251,6 +280,16 @@ public class Board extends JPanel implements ActionListener {
 					a.setVisible(false);
 					score += 100;
 				}
+			}
+		}
+		
+		if (powerUp.isVisible()) {
+			Rectangle r = powerUp.getBounds();
+			
+			if (r.intersects(r3) && ingame) {
+				Sound.powerup.play();
+				craft.setPoweredUp(true);
+				powerUp.setVisible(false);
 			}
 		}
 	}

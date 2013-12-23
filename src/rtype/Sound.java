@@ -14,6 +14,7 @@ public class Sound {
 	public static final Sound enemyDeath = new Sound("media/death.wav");
 	public static final Sound gameMusic = new Sound("media/gamemusic.wav");
 	public static final Sound levelUp = new Sound("media/levelup.wav");
+	public static final Sound powerup = new Sound("media/powerup.wav");
 	
 	private AudioClip clip;
 	
