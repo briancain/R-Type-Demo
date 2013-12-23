@@ -44,12 +44,12 @@ public class Alien implements Being {
 		
 		if (y < 1) {
         	y = 379;
-        }
+		}
 		//
-        if(y > 380) {
+		if(y > 380) {
         	y = 1;
-        }
-        
+		}
+
 		x--;
 	}
 	
